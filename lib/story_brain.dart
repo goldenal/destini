@@ -3,7 +3,7 @@ import 'story.dart';
 
 //TODO: Step 5 - Create a new class called StoryBrain.
 class StoryBrain{
-  int storyNumber = 0;
+  int _storyNumber = 0;
 
 
   List<Story> _storyData = [
@@ -39,46 +39,46 @@ class StoryBrain{
   ];
 
   String getStory(){
-    return _storyData[storyNumber].mstoryTitle;
+    return _storyData[_storyNumber].mstoryTitle;
   }
 
 
   String getChoice1(){
-    return _storyData[storyNumber].mchoice1;
+    return _storyData[_storyNumber].mchoice1;
   }
 
 
   String getChoice2(){
-    return _storyData[storyNumber].mchoice2;
+    return _storyData[_storyNumber].mchoice2;
   }
 
 
   void nextStory(int choiceNumber){
-    if(storyNumber == 3 || storyNumber == 4 || storyNumber ==5){
+    if(_storyNumber == 3 || _storyNumber == 4 || _storyNumber ==5){
       restart();
     }else{
-      switch(storyNumber){
+      switch(_storyNumber){
         case 0:{
           if(choiceNumber == 1){
-            storyNumber = 2;
+            _storyNumber = 2;
           }else{
-            storyNumber = 1;
+            _storyNumber = 1;
           }
         }
         break;
         case 1:{
           if(choiceNumber == 1){
-            storyNumber = 2;
+            _storyNumber = 2;
           }else{
-            storyNumber =3;
+            _storyNumber =3;
           }
         }
         break;
         case 2:{
           if(choiceNumber ==1){
-            storyNumber = 5;
+            _storyNumber = 5;
           }else{
-            storyNumber = 4;
+            _storyNumber = 4;
           }
         }
         break;
@@ -89,7 +89,7 @@ class StoryBrain{
 
   }
   void restart(){
-    storyNumber = 0;
+    _storyNumber = 0;
   }
 
 }
